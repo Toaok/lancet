@@ -17,6 +17,7 @@ import me.ele.lancet.weaver.internal.graph.Graph;
 import me.ele.lancet.weaver.internal.graph.InterfaceNode;
 import me.ele.lancet.weaver.internal.graph.MetaGraphGenerator;
 import me.ele.lancet.weaver.internal.graph.Node;
+import me.ele.lancet.weaver.internal.log.Log;
 
 /**
  * Created by gengwanpeng on 17/4/26.
@@ -42,7 +43,10 @@ public class MetaGraphGeneratorImpl implements MetaGraphGenerator {
             superNode = (ClassNode) getOrPutEmpty(false, entity.superName);
         }
         if (entity.interfaces.size() > 0) {
-            interfaceNodes = entity.interfaces.stream().map(i -> (InterfaceNode) getOrPutEmpty(true, i)).collect(Collectors.toList());
+            interfaceNodes = entity.interfaces.stream().map(i ->{
+                Log.w("Node case InterfaceNode add()");
+                return (InterfaceNode) getOrPutEmpty(true, i);
+            }).collect(Collectors.toList());
         }
 
         current.entity = entity;
