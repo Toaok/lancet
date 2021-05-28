@@ -146,6 +146,7 @@ public class PreClassAnalysis {
 
                 // update the graph
                 if (status != Status.REMOVED) {
+                    Log.w("Node case InterfaceNode onClassFetch():"+result.entity.name);
                     graph.add(result.entity, status);
                 } else {
                     graph.remove(result.entity.name);
