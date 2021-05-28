@@ -44,8 +44,12 @@ public class MetaGraphGeneratorImpl implements MetaGraphGenerator {
         }
         if (entity.interfaces.size() > 0) {
             interfaceNodes = entity.interfaces.stream().map(i ->{
-                Log.w("Node case InterfaceNode add():"+i);
-                return (InterfaceNode) getOrPutEmpty(true, i);
+                try {
+                    return (InterfaceNode) getOrPutEmpty(true, i);
+                }catch (Exception e){
+                    Log.w("Node case InterfaceNode add():"+i);
+                    return new InterfaceNode(i);
+                }
             }).collect(Collectors.toList());
         }
 
