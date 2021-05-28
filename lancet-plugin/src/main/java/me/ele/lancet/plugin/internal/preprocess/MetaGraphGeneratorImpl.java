@@ -65,7 +65,6 @@ public class MetaGraphGeneratorImpl implements MetaGraphGenerator {
 
     // find node by name, if node is not exist then create and add it.
     private Node getOrPutEmpty(boolean isInterface, String className) {
-
         return nodeMap.computeIfAbsent(className, n -> isInterface ?
                 new InterfaceNode(n) :
                 new ClassNode(n));

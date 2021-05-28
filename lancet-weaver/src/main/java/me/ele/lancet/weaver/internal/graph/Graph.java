@@ -59,7 +59,6 @@ public class Graph {
                             if (i.children == Collections.EMPTY_LIST) {
                                 i.children = new ArrayList<>();
                             }
-                            Log.w("Node case InterfaceNode prepare()");
                             i.children.add((InterfaceNode) n);
                         } else {
                             if (i.implementedClasses == Collections.EMPTY_LIST) {
@@ -132,7 +131,6 @@ public class Graph {
             } else if (!(node instanceof InterfaceNode)) {
                 throw new IllegalArgumentException(interfaceName + " is not a interface");
             }
-            Log.w("Node case InterfaceNode implementsOf()");
             visitImplements((InterfaceNode) node, scope, visitor);
         };
     }
