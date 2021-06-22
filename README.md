@@ -19,7 +19,7 @@ Firstly, add following code in root **build.gradle** of your project.
 
 ```groovy
 dependencies {
-    classpath 'com.android.tools.build:gradle:3.4.0'
+    classpath 'com.android.tools.build:gradle:3.3.2'
     classpath 'me.ele:lancet-plugin:1.0.6'
 }
 ```
