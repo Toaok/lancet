@@ -40,7 +40,12 @@ public class MetaGraphGeneratorImpl implements MetaGraphGenerator {
         ClassNode superNode = null;
         List<InterfaceNode> interfaceNodes = Collections.emptyList();
         if (entity.superName != null) {
-            superNode = (ClassNode) getOrPutEmpty(false, entity.superName);
+            try {
+                superNode = (ClassNode) getOrPutEmpty(false, entity.superName);
+            }catch (Exception e){
+                Log.w("Node case ClassNode add():"+entity.superName);
+                superNode=new ClassNode(entity.superName);
+            }
         }
         if (entity.interfaces.size() > 0) {
             interfaceNodes = entity.interfaces.stream().map(i ->{
